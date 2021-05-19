@@ -1,9 +1,11 @@
 package ma.dwm.magasin.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import ma.dwm.magasin.entities.Client;
 
-public interface IProduit extends JpaRepository<Client, Long>{
+@Repository
+public interface IProduitRepository extends JpaRepository<Client, Long>{
 
 }
