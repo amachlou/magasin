@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class FormProduitWiew {
+public class FormProduitView {
 	private VBox vBoxRoot = new VBox();
 	private HBox hBoxButtons = new HBox();
 	private Scene scene = new Scene(vBoxRoot);
@@ -78,7 +78,7 @@ public class FormProduitWiew {
 		});
 	}
 	
-	public FormProduitWiew() {
+	public FormProduitView() {
 		addStyle();
 		addEvents();
 		initStage();

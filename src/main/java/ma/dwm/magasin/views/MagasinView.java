@@ -64,7 +64,12 @@ public class MagasinView extends Application {
 	
 	private void addEvents() {
 		itemNouveauProduit.setOnAction(event->{
-			new FormProduitWiew();
+			new FormProduitView();
+		});
+		
+		itemListeProduit.setOnAction(event->{
+			new ProduitListView();
+			
 		});
 	}
 	
