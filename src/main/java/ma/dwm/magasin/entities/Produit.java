@@ -1,7 +1,7 @@
 package ma.dwm.magasin.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -23,14 +23,14 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Produit implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_produit;
 	private String designation;
 	private int qte;
 	private double prix;
 	@Temporal(TemporalType.DATE)
-	private Date date;
+	private LocalDate date;
 	
 	@OneToMany
-	@JoinColumn(name = "commande_id", referencedColumnName = "code", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "commande_id", referencedColumnName = "id_commande", nullable = false, insertable = false, updatable = false)
 	private Set<Commande> list_commandes;
 }

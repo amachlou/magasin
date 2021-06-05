@@ -21,14 +21,14 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Reglement implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_regelement;
 	private String mode_paiement; //comptant, trait
 	
 	@OneToOne
-	@JoinColumn(name = "vente_id", referencedColumnName = "code", nullable = false)
+	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente", nullable = false)
 	private Vente vente;
 	@OneToMany
-	@JoinColumn(name = "reglement_id", referencedColumnName = "code", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "reglement_id", referencedColumnName = "id_reglement", nullable = false, insertable = false, updatable = false)
 	private Set<Paiement> list_paiements;
 	
 }

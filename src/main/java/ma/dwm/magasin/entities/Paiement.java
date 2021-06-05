@@ -22,12 +22,12 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Paiement implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_paiment;
 	private double mtt_paiement;
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	@ManyToOne
-	@JoinColumn(name = "reglement_id", referencedColumnName = "code", nullable = false)
+	@JoinColumn(name = "reglement_id", referencedColumnName = "id_reglement", nullable = false)
 	private Reglement reglement;
 	
 }

@@ -20,13 +20,14 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Client implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_client;
 	private String nom;
 	private String prenom;
 	private String telephone;
 	private String email;
-	private String adresse;
+//	private String adresse;
+	
 	@OneToMany
-	@JoinColumn(name = "client_id", referencedColumnName = "code", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "client_id", referencedColumnName = "id_client", nullable = false, insertable = false, updatable = false)
 	private Set<Vente> list_ventes;
 }

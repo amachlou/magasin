@@ -20,15 +20,15 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Commande implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_commande;
 	private double qte;
 	private double sous_total;
 	
 	@ManyToOne
-	@JoinColumn(name = "vente_id", referencedColumnName = "code", nullable = false)
+	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente", nullable = false)
 	private Vente vente;
 	@OneToOne
-	@JoinColumn(name = "commande_id", referencedColumnName = "code", nullable = false)
+	@JoinColumn(name = "commande_id", referencedColumnName = "id_commande", nullable = false)
 	private Produit produit;
 	
 	public double getSous_total(){

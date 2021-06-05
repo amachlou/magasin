@@ -24,20 +24,21 @@ import lombok.NoArgsConstructor;
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Vente implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	private Long id_vente;
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	//liste des lignes de commandes
 	private double total;
+	public static boolean isAdded=false;
 	
 	@OneToMany
-	@JoinColumn(name = "vente_id", referencedColumnName = "code", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente", nullable = false, insertable = false, updatable = false)
 	private Set<Commande> list_commandes;
 	@ManyToOne
-	@JoinColumn(name = "client_id", referencedColumnName = "code", nullable = false)
+	@JoinColumn(name = "client_id", referencedColumnName = "id_client", nullable = false)
 	private Client client;
 	@OneToMany
-	@JoinColumn(name = "vente_id", referencedColumnName = "code")
+	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente")
 	private Set<Reglement> list_reglements;
 	
 	public double getTotal() {
