@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import ma.dwm.magasin.entities.Client;
 import ma.dwm.magasin.repositories.IClientRepository;
+import ma.dwm.magasin.repositories.IProduitRepository;
 import ma.dwm.magasin.views.application.ListeClients;
 
 public class ClientHandler {
@@ -13,6 +14,8 @@ public class ClientHandler {
 	ListeClients listClient=null;
 	@Autowired
 	IClientRepository cdao;
+	@Autowired
+	IProduitRepository pdao;
 
 	public ClientHandler(ListeClients listClient) {
 		this.listClient=listClient;
@@ -68,14 +71,14 @@ public class ClientHandler {
 		String tel=listClient.TelInput.getText();
 		String email=listClient.EmailInput.getText();
 		Client c=new Client(null, nom, prenom, tel, email, null);
-		cdao.save(cdao.findById(new Long(id)));
+//		cdao.save(cdao.findById(new Long(id))); TODO ToCompleyte
 		
 	}
 	
 	public void search() {
 		
-		String designation=listClient.rechercheInput.getText();
-		List<Client> list=cdao.getAll(designation);
+		String nomOrPresnom=listClient.rechercheInput.getText();
+		List<Client> list=cdao.findByNomContainsOrPrenomContains(nomOrPresnom); // TODO Changed from designation to nomOrPresnom, from c
 		listClient.clientObservableList.addAll(list);
 		
 	}

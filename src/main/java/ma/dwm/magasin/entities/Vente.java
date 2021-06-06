@@ -29,6 +29,8 @@ public class Vente implements Serializable {
 	private Date date;
 	//liste des lignes de commandes
 	private double total;
+	private double total_paye;
+	
 	public static boolean isAdded=false;
 	
 	@OneToMany
@@ -47,5 +49,9 @@ public class Vente implements Serializable {
 			tempTotal += commande.getSous_total();
 		}
 		return tempTotal;
+	}
+	
+	public double getRest() {
+		return total-total_paye;
 	}
 }

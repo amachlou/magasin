@@ -1,3 +1,4 @@
+package ma.dwm.magasin.views.user;
 /*
  * package ma.dwm.magasin.views.login;
  * 

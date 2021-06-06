@@ -1,14 +1,10 @@
-package ma.dwm.magasin.views.application;
+package ma.dwm.magasin;
 	
-import java.sql.Connection;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.stage.Stage;
-import ma.dwm.magasin.views.login.User;
-import ma.dwm.magasin.views.login.LoginDaoImpl;
-import ma.dwm.magasin.views.login.LoginHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,22 +17,23 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import ma.dwm.magasin.entities.User;
+import ma.dwm.magasin.views.application.ListeClients;
+import ma.dwm.magasin.views.application.ListeProduits;
 
-
+@SpringBootApplication
 public class Main extends Application {
 	
 	ListeProduits listProduit;
 	ListeClients listClient;
-	LoginHandler handler=new LoginHandler(this);
+//	UserHandler handler = new UserHandler(this); TODO ToCompleyte
 	
 	
 	MenuBar menuBar;
@@ -236,14 +233,14 @@ public class Main extends Application {
 		loginBtn.setOnAction(event ->
 		{
 			
-			handler.login(window);	
+//			handler.login(window);	TODO ToCompleyte
 			
 		});
 	
 		Clients.setOnMouseClicked((mouseEvent) -> {
-			User l =new User();
-			if(l.isLogin) {
-				listClient=new ListeClients();
+			User u = new User();
+			if(User.isLogin) {
+//				listClient=new ListeClients(); TODO ToCompleyte
 				window.close();
 			}
 			else {
@@ -253,9 +250,8 @@ public class Main extends Application {
 
 		
 		Clients.setOnMouseClicked((mouseEvent) -> {
-			User l =new User();
-			if(l.isLogin) {
-				listProduit= new ListeProduits();
+			if(User.isLogin) {
+//				listProduit= new ListeProduits(); TODO ToCompleyte
 				window.close();
 			}
 			else {
@@ -302,8 +298,7 @@ public class Main extends Application {
 	
 
 	public static void main(String[] args) {
-		launch(args);
-		
-		
+		SpringApplication.run(Main.class, args);
+		Main.launch(args);
 	}
 }

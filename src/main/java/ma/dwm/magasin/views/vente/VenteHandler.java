@@ -81,11 +81,11 @@ public class VenteHandler {
 		total=Double.valueOf(nouveauVente.lblTotalVal.getText());
 		long id_client=Integer.valueOf(nouveauVente.id_client.getText());
 		LocalDate date=nouveauVente.dateInput.getValue();
-		Vente v = new Vente(null, null, total, id_client)  (0,date,total,id_client);
-		pdaoVente.save(v);
-		if(v.isAdded) {
-			addListCommandeToDb();			
-		}
+//		Vente v = new Vente(null, null, total, id_client)  (0,date,total,id_client); TODO ToCompleyte
+//		pdaoVente.save(v); TODO ToCompleyte
+//		if(v.isAdded) { TODO ToCompleyte
+//			addListCommandeToDb();			
+//		}
 		
 		
 //			double sousTotal=0;
@@ -112,7 +112,7 @@ public class VenteHandler {
 			double prix=c.getPrix();
 			sousTotal=qte*prix;
 			System.out.println(c);
-			pdaoCommande.add(c);			
+//			pdaoCommande.save(c);	TODO ToCompleyte
 	}
 }
 	
@@ -158,7 +158,7 @@ public class VenteHandler {
 			sousTotal=qte*prix;
 				
 			LigneCommande c=new LigneCommande(id_cmd,designation,prix,qte,sousTotal,id_produit);
-			pdaoCommande.update(c);
+//			pdaoCommande.save(c); TODO ToCompleyte
 			calculerTotal();
 			updateListLigneCommande();
 			
@@ -172,13 +172,10 @@ public class VenteHandler {
 			ma.dwm.magasin.entities.Vente v = listVentes.VenteList.getSelectionModel().getSelectedItem();
 			double total=v.getTotal();
 			double total_paye=v.getTotal_paye();
-			double reste =v.getReste();
-			
-			
 			
 			listVentes.lblTotalVal.setText(total+"");
 			listVentes.lblTotalPayeVal.setText(total_paye+"");
-			listVentes.lblResteVal.setText(reste+"");
+			listVentes.lblResteVal.setText(v.getRest()+"");
 		
 		}
 		
@@ -188,16 +185,10 @@ public class VenteHandler {
 			LocalDate date1 =listVentes.Date1Input.getValue();
 			LocalDate date2=listVentes.Date2Input.getValue();
 			
-			pdaoVente.searchVente(id_vente,);
+			pdaoVente.searchVente(id_vente,nom,date1, date2);
 			
-			List<Vente> list=pdaoVente.findAll();
+			List<Vente> list = pdaoVente.findAll();
 			listVentes.VenteObservableList.addAll(list);
 		}
-		
-		
-
-
-	
-	
 	
 }

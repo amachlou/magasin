@@ -1,4 +1,4 @@
-package ma.dwm.magasin.views.login;
+package ma.dwm.magasin.views.user;
 
 public interface ILoginDAO<Login> {
 

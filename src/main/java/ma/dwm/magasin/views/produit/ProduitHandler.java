@@ -1,6 +1,7 @@
 package ma.dwm.magasin.views.produit;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,7 +81,7 @@ public class ProduitHandler {
 		String designation = p.getDesignation();
 		int qte = p.getQte();
 		double prix = p.getPrix();
-		Date date = p.getDate();
+		LocalDate date = p.getDate();
 		
 		listProduit.titleInput.setText(id+"");
 		listProduit.designationInput.setText(designation);
@@ -109,7 +110,7 @@ public class ProduitHandler {
 		int qte=Integer.valueOf(listProduit.qteInput.getText());
 		double prix=Double.valueOf(listProduit.prixInput.getText());
 		LocalDate date=listProduit.dateInput.getValue();	
-		Produit p=new Produit(id,designation,qte,prix,date);
+		Produit p=new Produit(null, designation, qte, prix, date, null);
 		produitRepository.save(p);
 		updateListProduits();
 		
