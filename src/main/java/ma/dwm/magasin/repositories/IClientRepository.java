@@ -10,6 +10,6 @@ import ma.dwm.magasin.entities.Client;
 @Repository
 public interface IClientRepository extends JpaRepository<Client, Long>{
 	
-	List<Client> findByNomContainsOrPrenomContains(String nomOrPresnom);
+	List<Client> findByNomContains(String nomOrPresnom);
 	
 }

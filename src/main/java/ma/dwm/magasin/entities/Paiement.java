@@ -27,7 +27,7 @@ public class Paiement implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	@ManyToOne
-	@JoinColumn(name = "reglement_id", referencedColumnName = "id_reglement", nullable = false)
+	@JoinColumn(name = "reglement_id", referencedColumnName = "id_regelement", nullable = false)
 	private Reglement reglement;
 	
 }

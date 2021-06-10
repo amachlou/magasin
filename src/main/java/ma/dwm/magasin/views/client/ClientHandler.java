@@ -78,7 +78,7 @@ public class ClientHandler {
 	public void search() {
 		
 		String nomOrPresnom=listClient.rechercheInput.getText();
-		List<Client> list=cdao.findByNomContainsOrPrenomContains(nomOrPresnom); // TODO Changed from designation to nomOrPresnom, from c
+		List<Client> list=cdao.findByNomContains(nomOrPresnom); // TODO Changed from designation to nomOrPresnom, from c
 		listClient.clientObservableList.addAll(list);
 		
 	}

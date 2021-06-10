@@ -70,7 +70,8 @@ public class Main extends Application {
 	Label passwordLabel=new Label("Password");
 	public PasswordField passwordInput=new PasswordField();
 	Button loginBtn = new Button("Login");
-	Image img = new Image("css/magasin_logo.jpg");
+//	Image img = new Image("main/java/ma/dwm/magasin/css/magasin_logo.jpg");
+	javafx.scene.image.Image img = new javafx.scene.image.Image(getClass().getResource("magasin_logo.jpg").toExternalForm());
 	ImageView view = new ImageView(img);
 	Font font;
 

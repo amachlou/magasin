@@ -28,7 +28,7 @@ public class Commande implements Serializable {
 	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente", nullable = false)
 	private Vente vente;
 	@OneToOne
-	@JoinColumn(name = "commande_id", referencedColumnName = "id_commande", nullable = false)
+	@JoinColumn(name = "commande_id", referencedColumnName = "id_produit", nullable = false)
 	private Produit produit;
 	
 	public double getSous_total(){

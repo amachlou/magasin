@@ -185,7 +185,7 @@ public class VenteHandler {
 			LocalDate date1 =listVentes.Date1Input.getValue();
 			LocalDate date2=listVentes.Date2Input.getValue();
 			
-			pdaoVente.searchVente(id_vente,nom,date1, date2);
+//			pdaoVente.searchVente(id_vente,nom,date1, date2); TODO TOComplete
 			
 			List<Vente> list = pdaoVente.findAll();
 			listVentes.VenteObservableList.addAll(list);

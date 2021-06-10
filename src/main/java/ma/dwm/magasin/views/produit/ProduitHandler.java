@@ -81,7 +81,7 @@ public class ProduitHandler {
 		String designation = p.getDesignation();
 		int qte = p.getQte();
 		double prix = p.getPrix();
-		LocalDate date = p.getDate();
+		LocalDate date = p.getDate().toLocalDate();
 		
 		listProduit.titleInput.setText(id+"");
 		listProduit.designationInput.setText(designation);
@@ -110,9 +110,10 @@ public class ProduitHandler {
 		int qte=Integer.valueOf(listProduit.qteInput.getText());
 		double prix=Double.valueOf(listProduit.prixInput.getText());
 		LocalDate date=listProduit.dateInput.getValue();	
-		Produit p=new Produit(null, designation, qte, prix, date, null);
-		produitRepository.save(p);
-		updateListProduits();
+//		TODO To Complete
+//		Produit p = new Produit(null, designation, qte, prix, date, null);
+//		produitRepository.save(p);
+//		updateListProduits(); 
 		
 	}
 	

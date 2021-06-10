@@ -13,7 +13,7 @@ import ma.dwm.magasin.views.vente.LigneCommande;
 @Repository
 public interface ICommandeRepository extends JpaRepository<Vente, Long>{
 
-	@Query("from Commande c where commande.vente.id = :id_vente")
+	@Query("from Commande c where c.vente.id_vente = :id_vente")
 	List<LigneCommande> findByVenteId(@Param("id_vente") long id_vente);
 
 }

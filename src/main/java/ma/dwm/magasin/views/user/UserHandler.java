@@ -16,7 +16,7 @@ public class UserHandler {
 
 	Main main=null; 
 	@Autowired
-	IUserRepository pdao;
+	IUserRepository udao;
 	ListeClients listClient;
 
 public UserHandler(Main main) { 
@@ -27,9 +27,9 @@ public UserHandler(Main main) {
 public void login(Stage window) { 
 	User l =new User(); 
 	List<Client> list = new ArrayList<Client>(); 
-	String user = main.userInput.getText(); 
+	String username = main.userInput.getText(); 
 	String password = main.passwordInput.getText(); 
-	pdao.findByUsernameAndPassword(user, password);
+	User user = udao.findByUsernameAndPassword(username, password).get(0);
 	
 	if(l.isLogin) { 
 		listClient=new ListeClients(); 

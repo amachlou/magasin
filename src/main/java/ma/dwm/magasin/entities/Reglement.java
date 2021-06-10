@@ -28,7 +28,7 @@ public class Reglement implements Serializable {
 	@JoinColumn(name = "vente_id", referencedColumnName = "id_vente", nullable = false)
 	private Vente vente;
 	@OneToMany
-	@JoinColumn(name = "reglement_id", referencedColumnName = "id_reglement", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "reglement_id", referencedColumnName = "id_regelement", nullable = false, insertable = false, updatable = false)
 	private Set<Paiement> list_paiements;
 	
 }

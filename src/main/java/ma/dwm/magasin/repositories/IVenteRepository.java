@@ -1,6 +1,6 @@
 package ma.dwm.magasin.repositories;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,7 +12,7 @@ import ma.dwm.magasin.entities.Vente;
 @Repository
 public interface IVenteRepository extends JpaRepository<Vente, Long>{
 
-	@Query("from vente v where v.id_vente=id_vente and v.client.nom=:nom and date between :date1 and :date2")
-	void searchVente(@Param("id_vente") long id_vente,@Param("nom") String nom,@Param("date1") LocalDate date1,@Param("date2") LocalDate date2);
+	@Query("from Vente v where v.id_vente=:id_vente and v.client.nom=:nom and v.date between :date1 and :date2")
+	void searchVente(@Param("id_vente") long id_vente,@Param("nom") String nom,@Param("date1") Date date1,@Param("date2") Date date2);
 	
 }
