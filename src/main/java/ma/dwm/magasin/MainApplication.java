@@ -2,6 +2,7 @@ package ma.dwm.magasin;
 	
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -29,12 +30,17 @@ import ma.dwm.magasin.views.application.ListeClients;
 import ma.dwm.magasin.views.application.ListeProduits;
 
 @SpringBootApplication
-public class Main extends Application {
+@Component
+public class MainApplication extends Application {
 	
 	ListeProduits listProduit;
 	ListeClients listClient;
 //	UserHandler handler = new UserHandler(this); TODO ToCompleyte
 	
+	/*
+	 * @Autowired public MainApplication() { // TODO Auto-generated constructor stub
+	 * }
+	 */
 	
 	MenuBar menuBar;
 	
@@ -62,7 +68,7 @@ public class Main extends Application {
 	MenuItem listPaiements;
 	MenuItem helpItem;
 	
-	VBox root =new VBox();
+	VBox root = new VBox();
 	private StackPane stack=new StackPane();
 	private Scene scene =new Scene(root);
 	Label usernameLabel=new Label("Username");
@@ -70,49 +76,47 @@ public class Main extends Application {
 	Label passwordLabel=new Label("Password");
 	public PasswordField passwordInput=new PasswordField();
 	Button loginBtn = new Button("Login");
-//	Image img = new Image("main/java/ma/dwm/magasin/css/magasin_logo.jpg");
-	javafx.scene.image.Image img = new javafx.scene.image.Image(getClass().getResource("magasin_logo.jpg").toExternalForm());
-	ImageView view = new ImageView(img);
+//	Image img = new Image("/css/magasin_logo.jpg");
+//	//Image img = new Image("css/magasin_logo.jpg");
+//	ImageView view = new ImageView(img);
 	Font font;
-
+	
+	Label lblTitle;
 	
 	private void addNodesToWindow() {
 		// view properties
-	    view.setFitWidth(1100);
-	    view.setFitHeight(700);
-	    view.fitWidthProperty().bind(root.widthProperty());
-	    view.fitHeightProperty().bind(root.heightProperty());
+//	    view.setFitWidth(1100);
+//	    view.setFitHeight(700);
+//	    view.fitWidthProperty().bind(root.widthProperty());
+//	    view.fitHeightProperty().bind(root.heightProperty());
 	    
 	    lblError=new Label("");
 	    
 	    // labeluser properties
 		usernameLabel.setMaxWidth(350);
 		usernameLabel.setMaxHeight(50);
-		font = Font.font("Brush Script MT", FontWeight.BOLD,
-		FontPosture.REGULAR, 20);
+		font = Font.font("Brush Script MT", FontWeight.BOLD, FontPosture.REGULAR, 20);
 	    usernameLabel.setFont(font);
 		usernameLabel.setTextFill(Color.DEEPSKYBLUE);
-		usernameLabel.setTranslateX(300);
-		usernameLabel.setTranslateY(-100);
+		usernameLabel.setTranslateX(30);
+		usernameLabel.setTranslateY(120);
 		
 		// inputuser properties
 		userInput.setMaxWidth(350);
-		font = Font.font("Brush Script MT",
-		FontPosture.REGULAR, 20);
+		font = Font.font("Brush Script MT", FontPosture.REGULAR, 20);
 		userInput.setFont(font);
 		userInput.setPromptText("Username");
-		userInput.setTranslateX(300);
-		userInput.setTranslateY(-60);
+		userInput.setTranslateX(30);
+		userInput.setTranslateY(160);
 		
 		// labeluser properties
 		passwordLabel.setMaxWidth(350);
 		passwordLabel.setMaxHeight(50);
-		font = Font.font("Brush Script MT", FontWeight.BOLD,
-		FontPosture.REGULAR, 20);
+		font = Font.font("Brush Script MT", FontWeight.BOLD, FontPosture.REGULAR, 20);
 		passwordLabel.setFont(font);
 		passwordLabel.setTextFill(Color.DEEPSKYBLUE);
-		passwordLabel.setTranslateX(300);
-		passwordLabel.setTranslateY(-20);
+		passwordLabel.setTranslateX(30);
+		passwordLabel.setTranslateY(200);
 				
 		// inputpass properties
 		passwordInput.setMaxWidth(350);
@@ -120,8 +124,8 @@ public class Main extends Application {
 		FontPosture.REGULAR, 20);
 		passwordInput.setFont(font);
 		passwordInput.setPromptText("Password");
-		passwordInput.setTranslateX(300);
-		passwordInput.setTranslateY(20);
+		passwordInput.setTranslateX(30);
+		passwordInput.setTranslateY(240);
 		
 		// buttonlogin properties
 		loginBtn.setMaxWidth(350);
@@ -131,15 +135,21 @@ public class Main extends Application {
 		loginBtn.setFont(font);
 		loginBtn.setTextFill(Color.WHITE);
 		loginBtn.setBackground(new Background(new BackgroundFill(Color.DEEPSKYBLUE, null, null)));
-		loginBtn.setTranslateX(300);
-		loginBtn.setTranslateY(80);
+		loginBtn.setTranslateX(30);
+		loginBtn.setTranslateY(300);
 		
 		lblError.setMaxWidth(350);
-		lblError.setTranslateX(300);
-		lblError.setTranslateY(140);
+		lblError.setTranslateX(30);
+		lblError.setTranslateY(340);
+		
+		lblTitle=new Label("User Login");
+		font = Font.font("Brush Script MT", FontWeight.BOLD, FontPosture.REGULAR, 40);
+		lblTitle.setFont(font);
+		lblTitle.setTextFill(Color.DEEPSKYBLUE);
+		lblTitle.setTranslateX(30);
+		lblTitle.setTranslateY(70);
 		
 		menuBar=new MenuBar();
-		
 		
 		Produits= new Label("Produits");
 		Clients= new Label("Clients");
@@ -191,8 +201,8 @@ public class Main extends Application {
 		
 		stack.setAlignment(Pos.CENTER);
 		stack.getChildren().addAll(
-	            view,
-	            usernameLabel,userInput,passwordInput,passwordLabel,loginBtn,lblError);
+//	            view,
+				lblTitle,usernameLabel,userInput,passwordInput,passwordLabel,loginBtn,lblError);
 		root.getChildren().addAll(menuBar,stack);
 	
 	}
@@ -292,14 +302,13 @@ public class Main extends Application {
 			window.setHeight(700);
 			window.setResizable(false);
 			window.setTitle("Gestion de Magasin");
-			window.getIcons().add(new Image("css/logo_icon.png"));
+//			window.getIcons().add(/*new Image("css/logo_icon.png")*/);
 			window.show();
 		
 	}
 	
-
 	public static void main(String[] args) {
-		SpringApplication.run(Main.class, args);
-		Main.launch(args);
+		SpringApplication.run(MainApplication.class, args);
+		MainApplication.launch(args);
 	}
 }

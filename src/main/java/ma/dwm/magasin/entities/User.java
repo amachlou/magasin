@@ -21,6 +21,6 @@ public class User implements Serializable {
 	private Long id_user;
 	private String username;
 	private String password;
-	public static boolean isLogin=false;
+	public static boolean isLogin=true;// Tocomplete, Set default false
 
 }
