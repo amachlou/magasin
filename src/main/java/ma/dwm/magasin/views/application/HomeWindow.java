@@ -11,7 +11,6 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
@@ -162,12 +161,12 @@ public class HomeWindow {
 		window.setScene(scene);
 		window.setMaximized(true);
 		window.setTitle("Gestion de Magasin  -  Acceuil");
-		window.getIcons().add(new Image("css/logo_icon.png"));
+//		window.getIcons().add(new Image("css/logo_icon.png"));
 		window.show();
 	}
 	
 	private void addStyleToNodes(){
-		scene.getStylesheets().add("css/application.css");
+//		scene.getStylesheets().add("css/application.css"); TODO ToComplete
 		hboxTop.getStyleClass().addAll("hbox","padding");
 		hboxBottom.getStyleClass().addAll("menuStyle","padding");
 		menuBtn.getStyleClass().add("cursor");

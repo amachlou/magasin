@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="ma.dwm.magasin.repositories.IUserRepository" project="magasin" 
+    file="/magasin/src/main/java/ma/dwm/magasin/repositories/IUserRepository.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="298" x="791" y="319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="2" language="java" name="ma.dwm.magasin.repositories.ICommandeRepository" project="magasin" 
+    file="/magasin/src/main/java/ma/dwm/magasin/repositories/ICommandeRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="232" x="1129" y="319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="3" language="java" name="ma.dwm.magasin.repositories.IProduitRepository" project="magasin" 
+    file="/magasin/src/main/java/ma/dwm/magasin/repositories/IProduitRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="256" x="1401" y="319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="4" language="java" name="ma.dwm.magasin.repositories.IClientRepository" project="magasin" 
+    file="/magasin/src/main/java/ma/dwm/magasin/repositories/IClientRepository.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="81" width="214" x="1697" y="319"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="5" language="java" name="ma.dwm.magasin.repositories.IVenteRepository" project="magasin" 
+    file="/magasin/src/main/java/ma/dwm/magasin/repositories/IVenteRepository.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2065" y="358"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

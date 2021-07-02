@@ -183,14 +183,14 @@ public class NouveauClient {
 			window.setScene(scene);
 			window.setMaximized(true);
 			window.setTitle("Gestion de Magasin  -  Nouveau Client");
-			window.getIcons().add(new Image("css/logo_icon.png"));
+//			window.getIcons().add(new Image("css/logo_icon.png"));
 			window.show();
 			
 		}
 		
 		private void addStyleToNodes(){
 			
-			scene.getStylesheets().add("css/application.css");
+//			scene.getStylesheets().add("css/application.css"); TODO ToComplete
 			
 			hboxTop.getStyleClass().addAll("hbox","padding");
 			hboxBottom.getStyleClass().addAll("menuStyle","padding");

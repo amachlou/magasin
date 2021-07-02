@@ -310,14 +310,14 @@ public class NouveauPaiement {
 		public void initWindow(){
 			window.setScene(scene);
 			window.setTitle("Gestion de Magasin  -  Acceuil");
-			window.getIcons().add(new Image("css/logo_icon.png"));
+//			window.getIcons().add(new Image("css/logo_icon.png"));
 			window.setMaximized(true);
 			window.show();
 			
 		}
 		
 		private void addStyleToNodes(){
-			scene.getStylesheets().add("css/application.css");
+//			scene.getStylesheets().add("css/application.css"); TODO ToComplete
 			hboxTop.getStyleClass().addAll("hbox","padding");
 			hboxBottom.getStyleClass().addAll("menuStyle","padding");
 			

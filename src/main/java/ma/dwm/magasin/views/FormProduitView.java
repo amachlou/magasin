@@ -36,7 +36,7 @@ public class FormProduitView {
 		stage.setWidth(1000);
 		stage.setHeight(600);
 		stage.setTitle("Nouveau produit");
-		stage.getIcons().add(new Image("file:icon.png"));
+//		stage.getIcons().add(new Image("file:icon.png"));
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.show();
 	}

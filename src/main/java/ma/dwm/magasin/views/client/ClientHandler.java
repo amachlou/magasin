@@ -3,11 +3,14 @@ package ma.dwm.magasin.views.client;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import ma.dwm.magasin.entities.Client;
 import ma.dwm.magasin.repositories.IClientRepository;
 import ma.dwm.magasin.repositories.IProduitRepository;
 import ma.dwm.magasin.views.application.ListeClients;
+
 
 public class ClientHandler {
 	
@@ -16,7 +19,7 @@ public class ClientHandler {
 	IClientRepository cdao;
 	@Autowired
 	IProduitRepository pdao;
-
+	
 	public ClientHandler(ListeClients listClient) {
 		this.listClient=listClient;
 	}
@@ -24,7 +27,7 @@ public class ClientHandler {
 	public void updateListClients() {
 		
 		
-		List<Client> list=cdao.findAll();
+		List<Client> list=(List<Client>) cdao.findAll();
 		listClient.clientObservableList.addAll(list);
 
 	}

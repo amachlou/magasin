@@ -1,10 +1,16 @@
-package ma.dwm.magasin;
+package ma.dwm.magasin.views.application;
 	
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,8 +20,6 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
@@ -25,17 +29,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import ma.dwm.magasin.MagasinApplication;
 import ma.dwm.magasin.entities.User;
-import ma.dwm.magasin.views.application.ListeClients;
-import ma.dwm.magasin.views.application.ListeProduits;
+import ma.dwm.magasin.repositories.IUserRepository;
+import ma.dwm.magasin.views.user.UserHandler;
 
-@SpringBootApplication
-@Component
-public class MainApplication extends Application {
+public class MainApplication extends Application{
+	
+	@Autowired
+	IUserRepository udao;
 	
 	ListeProduits listProduit;
 	ListeClients listClient;
-//	UserHandler handler = new UserHandler(this); TODO ToCompleyte
+	UserHandler handler = new UserHandler(this);// TODO ToCompleyte
 	
 	/*
 	 * @Autowired public MainApplication() { // TODO Auto-generated constructor stub
@@ -208,7 +214,7 @@ public class MainApplication extends Application {
 	}
 	
 	private void addStyleToNodes(){
-		scene.getStylesheets().add("css/application.css");
+//		scene.getStylesheets().add("css/application.css");TODO ToComplete
 		root.getStyleClass().add("Main");
 		usernameLabel.getStyleClass().add("labelTitle");
 		loginBtn.getStyleClass().add("cursor");
@@ -244,7 +250,7 @@ public class MainApplication extends Application {
 		loginBtn.setOnAction(event ->
 		{
 			
-//			handler.login(window);	TODO ToCompleyte
+			handler.login(window);	//TODO ToCompleyte
 			
 		});
 	
@@ -307,8 +313,25 @@ public class MainApplication extends Application {
 		
 	}
 	
-	public static void main(String[] args) {
-		SpringApplication.run(MainApplication.class, args);
-		MainApplication.launch(args);
-	}
+	private ConfigurableApplicationContext applicationContext;
+	
+    @Override
+    public void init() {
+        applicationContext = new SpringApplicationBuilder(MagasinApplication.class).run();
+    }
+//    @Override
+//    public void start(Stage stage) {
+//        applicationContext.publishEvent(new StageReadyEvent(stage));
+//    }
+    @Override
+    public void stop() {
+        applicationContext.close();
+        Platform.exit();
+    }
+    
+//    static class StageReadyEvent extends ApplicationEvent {
+//        public StageReadyEvent(Stage stage) {
+//            super(stage);
+//        }
+//    }
 }
